@@ -26,12 +26,18 @@ The images reveal how the quantisation compresses the parameters in the AI model
 While this quantisation process can speeding up computation, some sacrifices in quality should be expected.
 
 
-![App Introduction](./screenshots/screenshot_1.png)
-![App Introduction](./screenshots/screenshot_2.png)
-![App Introduction](./screenshots/screenshot_3.png)
+![App Introduction_1](./screenshots/screenshot_1.png)
+![App Introduction_2](./screenshots/screenshot_2.png)
+![App Introduction_3](./screenshots/screenshot_3.png)
 ## Conclusion
 
 QuantizationViz is designed to educate users about the balance between compression and quality in digital imaging and AI, providing an intuitive understanding through direct interaction and visualization.
 
 Thank you for exploring QuantizationViz. We hope this tool enhances your understanding of quantization effects in both digital imaging and artificial intelligence model compression.
+
+Here is a small gallery for you to review:
+
+![Sample Gallery](./screenshots/AI_UnderstandingQuantizationThroughViz.png)
+
+
 
