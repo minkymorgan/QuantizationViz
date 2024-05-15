@@ -6,6 +6,12 @@ Welcome to QuantizationViz, an interactive web application designed to demonstra
 
 QuantizationViz allows users to upload images and apply different levels of quantization to see the resulting quality and compression. This process not only demonstrates the core principles of quantization used in compressing AI models but also provides a hands-on experience with its effects on digital images.
 
+If you would like to try the app out, a live version to play with is found here!
+
+https://minkymorgan-qviz.streamlit.app/
+
+
+
 ## App Introduction
 
 The following screenshot provides an overview of the app's introduction and its educational purpose:
