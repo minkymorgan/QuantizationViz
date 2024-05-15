@@ -4,9 +4,20 @@ from PIL import Image
 import matplotlib.pyplot as plt
 
 def quantize(image, bits):
+
+    if bits == 1:
+        # Special handling for 1-bit quantization
+        threshold = 128
+        return (image >= threshold).astype(np.uint8) * 255
+
     max_val = 2**bits - 1
     quantized = np.floor(image / 256 * max_val) / max_val * 255
     return quantized.astype(np.uint8)
+
+
+
+
+
 
 def display_quantization(image):
     img_array = np.array(image, dtype=np.float32)  # Convert to 32-bit float
