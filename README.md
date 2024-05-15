@@ -16,38 +16,19 @@ If you would like to explore these concepts further, a live version of the app i
 
 ## App Introduction
 
-The following screenshot provides an overview of the app's introduction and its educational purpose:
+The following screenshots provide an overview of the app's purpose, and what it does:
 
-![App Introduction](./screenshots/Screenshot%202024-05-13%20at%2000.45.04.png)
+* user uploads image, and this is displayed as uploaded, resized.
+* python converts image to numpy array data, and applies quantisation to it
+* many different levels of quantisation are applied, degrading the image
 
-## Image Upload Feature
+The images reveal how the quantisation compresses the parameters in the AI model, by _rounding_ values down from 16 bits, to 8, 4, 2 and 1 bit.
+While this quantisation process can speeding up computation, some sacrifices in quality should be expected.
 
-Users can upload their images to the app. Here's what the upload interface looks like:
 
-![Image Upload Feature](./screenshots/Screenshot%202024-05-13%20at%2000.45.29.png)
-
-## Quantization Results
-
-After uploading images, the app displays them with different levels of quantization. Below are the screenshots showing the app interface after quantization at various levels:
-
-### First Level of Quantization
-
-![First Level of Quantization](./screenshots/Screenshot%202024-05-13%20at%2000.45.40.png)
-
-### Second Level of Quantization
-
-![Second Level of Quantization](./screenshots/Screenshot%202024-05-13%20at%2000.45.52.png)
-
-### Third Level of Quantization
-
-![Third Level of Quantization](./screenshots/Screenshot%202024-05-13%20at%2000.46.01.png)
-
-### Final Quantization and Comparison
-
-The final screenshot shows the most aggressive level of quantization applied and compares it side by side with previous levels:
-
-![Final Quantization and Comparison](./screenshots/Screenshot%202024-05-13%20at%2000.46.08.png)
-
+![App Introduction](./screenshots/screenshot_1.png)
+![App Introduction](./screenshots/screenshot_2.png)
+![App Introduction](./screenshots/screenshot_3.png)
 ## Conclusion
 
 QuantizationViz is designed to educate users about the balance between compression and quality in digital imaging and AI, providing an intuitive understanding through direct interaction and visualization.
