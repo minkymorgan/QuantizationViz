@@ -1,14 +1,16 @@
 # QuantizationViz: Image Quantization Demonstration
 
-Welcome to QuantizationViz, an interactive web application designed to demonstrate the effects of image quantization. This tool helps users visually understand how quantization can affect image quality and model performance in AI.
+Welcome to QuantizationViz, an interactive web application designed to visually demonstrate the effects of image quantization. This tool helps users understand how quantization impacts image quality and AI model performance.
 
 ## Project Overview
 
-QuantizationViz allows users to upload images and apply different levels of quantization to see the resulting quality and compression. This process not only demonstrates the core principles of quantization used in compressing AI models but also provides a hands-on experience with its effects on digital images.
+QuantizationViz invites users to upload images and apply different levels of quantization to observe the resulting quality and compression. This interactive demonstration elucidates the core principles of quantization, a critical technique used in optimizing AI models.
 
-If you would like to try the app out, a live version to play with is found here!
+In the landscape of AI and machine learning, models are often published with various quantization levels, allowing them to be adapted for different hardware constraints and performance needs. However, the impact of these quantization levels on model performance and memory footprint is not widely understood. By visualizing how quantization affects digital images, this application aims to provide a tangible understanding of these impacts, making it easier for users to appreciate the trade-offs involved in AI model compression.
 
-https://minkymorgan-qviz.streamlit.app/
+If you would like to explore these concepts further, a live version of the app is available for you to experiment with:
+
+[QuantizationViz Live Demo](https://minkymorgan-qviz.streamlit.app/)
 
 
 
