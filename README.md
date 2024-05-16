@@ -28,14 +28,24 @@ While this quantisation process can speeding up computation, some sacrifices in 
 ![App Introduction_1](./screenshots/screenshot_1.png)
 ![App Introduction_2](./screenshots/screenshot_2.png)
 ![App Introduction_3](./screenshots/screenshot_3.png)
+
+## Data Loss Study
+
+I very much sought to illustrate data loss with quantisation with this app. 
+Cost reduction via quantisation needs carefully measurement and quality controls.
+And so I have generated what I think are some cool examples of data lost in translation.
+
+Check them out!
+
+Run these images throught he demo application and see what happens to it! Amazing right?
+
+![amazing_unit_test](./screenshots/InfoIsLostUsingModelQuantization_Lost.jpg)
+![amazing_unit_test](./screenshots/HerQuantizedDream_Lost.jpg)
+
+
 ## Conclusion
 
 QuantizationViz is designed to educate users about the balance between compression and quality in digital imaging and AI, providing an intuitive understanding through direct interaction and visualization.
-
-My test file also illustrates that informatiton is certainly lost.
-Run this image throught he demo application and see what happens to it! Amazing right?
-
-![amazing_unit_test](./screenshots/InfoIsLostUsingModelQuantization_Lost.jpg)
 
 Thank you for exploring QuantizationViz. We hope this tool enhances your understanding of quantization effects in both digital imaging and artificial intelligence model compression.
 
