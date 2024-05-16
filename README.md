@@ -33,6 +33,8 @@ While this quantisation process can speeding up computation, some sacrifices in 
 QuantizationViz is designed to educate users about the balance between compression and quality in digital imaging and AI, providing an intuitive understanding through direct interaction and visualization.
 
 My test file also illustrates that informatiton is certainly lost.
+Run this image throught he demo application and see what happens to it! Amazing right?
+
 ![amazing_unit_test](./screenshots/InfoIsLostUsingModelQuantization_Lost.jpg)
 
 Thank you for exploring QuantizationViz. We hope this tool enhances your understanding of quantization effects in both digital imaging and artificial intelligence model compression.
