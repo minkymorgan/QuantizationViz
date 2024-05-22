@@ -1,57 +1,77 @@
-# QuantizationViz: Image Quantization Demonstration
+Sure! Here is a revised version of the README that includes both the original Streamlit app and the new one we worked on together, providing more educational context and helping users understand the purpose and functionality of each.
 
-Welcome to QuantizationViz, an interactive web application designed to visually demonstrate the effects of image quantization. This tool helps users understand how quantization impacts image quality and AI model performance.
+---
+
+# QuantizationViz: Understanding Image and Model Quantization
+
+Welcome to QuantizationViz, an interactive web application designed to visually demonstrate the effects of image quantization and model adaptation using QLoRA (Quantized Low-Rank Adaptation). This tool helps users understand how quantization impacts image quality and AI model performance.
 
 ## Project Overview
 
-QuantizationViz invites users to upload images and apply different levels of quantization to observe the resulting quality and compression. This interactive demonstration elucidates the core principles of quantization, a critical technique used in optimizing AI models.
+QuantizationViz offers two primary applications:
 
-In the landscape of AI and machine learning, models are often published with various quantization levels, allowing them to be adapted for different hardware constraints and performance needs. However, the impact of these quantization levels on model performance and memory footprint is not widely understood. By visualizing how quantization affects digital images, this application aims to provide a tangible understanding of these impacts, making it easier for users to appreciate the trade-offs involved in AI model compression.
+1. **Image Quantization Demonstration**: Allows users to upload images and apply different levels of quantization to observe the resulting quality and compression.
+2. **QLoRA Demonstration**: Illustrates the concept of QLoRA, showing how quantization and low-rank adaptation can be used to efficiently finetune large language models (LLMs).
 
-If you would like to explore these concepts further, a live version of the app is available for you to experiment with:
+### Why Quantization Matters
 
-[QuantizationViz Live Demo](https://minkymorgan-qviz.streamlit.app/)
+In the landscape of AI and machine learning, models are often published with various quantization levels, allowing them to be adapted for different hardware constraints and performance needs. However, the impact of these quantization levels on model performance and memory footprint is not widely understood. By visualizing how quantization affects digital images and model training, this application aims to provide a tangible understanding of these impacts, making it easier for users to appreciate the trade-offs involved in AI model compression.
 
+## Live Demos
 
-## App Introduction
+- [Image Quantization Live Demo](https://minkymorgan-qviz.streamlit.app/)
+- [QLoRA Demonstration Live Demo](URL to your deployed QLoRA app)
 
-The following screenshots provide an overview of the app's purpose, and what it does:
+## Image Quantization App
 
-* user uploads image, and this is displayed as uploaded, resized.
-* python converts image to numpy array data, and applies quantisation to it
-* many different levels of quantisation are applied, degrading the image
+This application demonstrates the effects of image quantization by allowing users to upload images and apply different levels of quantization. Here are the key features:
 
-The images reveal how the quantisation compresses the parameters in the AI model, by _rounding_ values down from 16 bits, to 8, 4, 2 and 1 bit.
-While this quantisation process can speeding up computation, some sacrifices in quality should be expected.
+1. **Image Upload**: Users can upload an image, which is then displayed as uploaded and resized.
+2. **Quantization Levels**: The app converts the image to a numpy array and applies various levels of quantization, showing how the image degrades as the bit depth decreases.
 
+The images reveal how quantization compresses the parameters in an AI model by _rounding_ values down from 16 bits to 8, 4, 2, and 1 bit. While this quantization process can speed up computation, some sacrifices in quality should be expected.
 
 ![App Introduction_1](./screenshots/screenshot_1.png)
 ![App Introduction_2](./screenshots/screenshot_2.png)
 ![App Introduction_3](./screenshots/screenshot_3.png)
 
-## Data Loss Study
+### Data Loss Study
 
-I very much sought to illustrate data loss with quantisation with this app. 
-Cost reduction via quantisation needs carefully measurement and quality controls.
-And so I have generated what I think are some cool examples of data lost in translation.
+This section illustrates the data loss that occurs with quantization. Cost reduction via quantization needs careful measurement and quality controls. Here are some examples of data lost in translation:
 
-Check them out!
+![Data Loss Example_1](./screenshots/InfoIsLostUsingModelQuantization_Lost.jpg)
+![Data Loss Example_2](./screenshots/HerQuantizedDream_Lost.jpg)
 
-Run these images throught he demo application and see what happens to it! Amazing right?
+## QLoRA Demonstration App
 
-![amazing_unit_test](./screenshots/InfoIsLostUsingModelQuantization_Lost.jpg)
-![amazing_unit_test](./screenshots/HerQuantizedDream_Lost.jpg)
+This new addition to QuantizationViz explains and visualizes QLoRA, a technique used to efficiently finetune large language models. Key features include:
 
+1. **Image Upload**: Users can upload two images - one representing the pre-trained model (e.g., Golden Gate Bridge) and another representing new data (e.g., Stonehenge).
+2. **Quantization and Adaptation**: The app demonstrates how the images are quantized and then adapted using QLoRA, showing the effects on the final output.
 
-## Conclusion
+### How QLoRA Works
 
-QuantizationViz is designed to educate users about the balance between compression and quality in digital imaging and AI, providing an intuitive understanding through direct interaction and visualization.
+1. **Quantization**: Reduces the precision of the model's parameters, lowering the memory and computational requirements. For example, converting 32-bit floating point numbers to 8-bit integers.
+2. **Low-Rank Adaptation**: Instead of updating all parameters, it updates only a small, low-rank subset of them. This targeted update maintains performance while minimizing computational costs.
+
+![QLoRA Demonstration](./screenshots/AI_UnderstandingQuantizationThroughViz.png)
+
+### Conclusion
+
+QuantizationViz is designed to educate users about the balance between compression and quality in digital imaging and AI. By providing an intuitive understanding through direct interaction and visualization, this tool enhances comprehension of quantization effects in both digital imaging and artificial intelligence model compression.
 
 Thank you for exploring QuantizationViz. We hope this tool enhances your understanding of quantization effects in both digital imaging and artificial intelligence model compression.
 
-Here is a small gallery for you to review:
+If you have any questions or need assistance, feel free to contact me at andrew.morgan(at)6point6.co.uk.
 
-![Sample Gallery](./screenshots/AI_UnderstandingQuantizationThroughViz.png)
+## Further Reading
 
+For more detailed technical information on QLoRA and its applications, you can refer to the following resources:
+- [GitHub - QLoRA](https://github.com/artidoro/qlora)
+- [NeurIPS 2023 Paper](https://proceedings.neurips.cc/paper_files/paper/2023/hash/1feb87871436031bdc0f2beaa62a049b-Abstract-Conference.html)
+- [arXiv - QLoRA Paper](https://arxiv.org/abs/2305.14314)
+- [Papers With Code - QLoRA](https://paperswithcode.com/paper/qlora-efficient-finetuning-of-quantized-llms)
 
+---
 
+Feel free to adjust the links and screenshots as needed. This updated README should provide clear guidance and context for both the original and new applications within QuantizationViz.
