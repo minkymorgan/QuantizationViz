@@ -158,9 +158,12 @@ st.pyplot(fig2)
 
 
 st.write("""
+
+(Your second image should be faintly visible like a ghost over the first image - adjust settings to test.)
+
 ### Conclusion
 
-The QLORA technique means that you can download a base model costing millions of dollars to train, and tailor it to train on your specefic data to "top it up" so that it better performs on your use case, whilst still retaining it's original value, and you can do so affordably.
+The QLORA technique means that you can download a base model costing millions of dollars to train, and you can fine tune that base model, to better performs on your local usecase, whilst still retaining it's original value, and you can do so affordably.
 
 But, as I explained previously, quantisation can reduce quality and is lossy, so you need to carefully experiment on how to get this right for your use cases. Another technique called Retrieval Augmented Generation helps to counteract the hullucination in quantised LLM outputs, by crafting a information rich prompt that retrieves the relevant (and now missing) documents from a vector database) and this is often used with QLORA.
 
