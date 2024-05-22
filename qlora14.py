@@ -11,7 +11,7 @@ st.write("""
 QLoRA stands for Quantized Low-Rank Adaptation. It's a technique used in training large language models (LLMs) that combines two powerful methods: quantization and low-rank adaptation. This approach significantly reduces the computational requirements and costs associated with training large AI models.
 
 ### Why is QLoRA Important?
-Training large language models like GPT-3 or GPT-4 requires substantial computational resources, often running into millions of dollars. For many organizations, especially those with limited GPU budgets, this is prohibitively expensive. QLORA changes the economics of AI by making it feasible to "top up" the training of pre-trained models efficiently and cost-effectively.
+Training large language models like GPT-3 or GPT-4 requires substantial computational resources, often running into millions of dollars. For many organizations, especially those with limited GPU budgets, this is prohibitively expensive. QLoRA changes the economics of AI by making it feasible to "top up" the training of pre-trained models efficiently and cost-effectively.
 
 ### How Does QLoRA Work?
 1. **Quantization**: Reduces the precision of the model's parameters, lowering the memory and computational requirements. For example, converting 32-bit floating point numbers to 8-bit integers.
@@ -51,36 +51,51 @@ image2 = image2.resize(image1.size)
 bit_depth = st.sidebar.slider("Select Quantization Bit Depth", min_value=2, max_value=8, value=4, step=1)
 adapt_factor = st.sidebar.slider("Select Adaptation Enhancement Factor", min_value=1.0, max_value=3.0, value=1.5, step=0.1)
 
-# Function to quantize an image to a lower bit-depth
-def quantize_image(image, bit_depth):
-    image_array = np.array(image)
-    scale = (2 ** bit_depth - 1) / 255.0
-    quantized_array = (image_array * scale).astype(np.uint8)
-    dequantized_array = (quantized_array / scale).astype(np.uint8)
-    quantized_image = Image.fromarray(dequantized_array)
-    return quantized_image
+# Caching function to store results using st.cache_data
+@st.cache_data
+def process_images(image1, image2, bit_depth, adapt_factor):
+    # Function to quantize an image to a lower bit-depth
+    def quantize_image(image, bit_depth):
+        image_array = np.array(image)
+        scale = (2 ** bit_depth - 1) / 255.0
+        quantized_array = (image_array * scale).astype(np.uint8)
+        dequantized_array = (quantized_array / scale).astype(np.uint8)
+        quantized_image = Image.fromarray(dequantized_array)
+        return quantized_image
 
-# Function to simulate low-rank adaptation by selectively enhancing parts of the image
-def adapt_image(image, pattern_image, factor=1.5):
-    # Convert the pattern image to grayscale and find edges
-    grayscale_pattern = ImageOps.grayscale(pattern_image)
-    edges = grayscale_pattern.filter(ImageFilter.FIND_EDGES)
+    # Function to simulate low-rank adaptation by selectively enhancing parts of the image
+    def adapt_image(image, pattern_image, factor=1.5):
+        # Convert the pattern image to grayscale and find edges
+        grayscale_pattern = ImageOps.grayscale(pattern_image)
+        edges = grayscale_pattern.filter(ImageFilter.FIND_EDGES)
 
-    # Create a mask from the edges
-    mask = edges.point(lambda x: 255 if x > 30 else 0).convert("1")
+        # Create a mask from the edges
+        mask = edges.point(lambda x: 255 if x > 30 else 0).convert("1")
 
-    # Apply selective enhancement based on the mask
-    enhancer = ImageEnhance.Contrast(image)
-    enhanced_image = enhancer.enhance(factor)
+        # Apply selective enhancement based on the mask
+        enhancer = ImageEnhance.Contrast(image)
+        enhanced_image = enhancer.enhance(factor)
 
-    # Ensure all images have the same size and mode
-    enhanced_image = enhanced_image.resize(image.size).convert("RGB")
-    image = image.resize(image.size).convert("RGB")
-    mask = mask.resize(image.size).convert("L")
+        # Ensure all images have the same size and mode
+        enhanced_image = enhanced_image.resize(image.size).convert("RGB")
+        image = image.resize(image.size).convert("RGB")
+        mask = mask.resize(image.size).convert("L")
 
-    # Blend the enhanced image with the original using the mask
-    adapted_image = Image.composite(enhanced_image, image, mask)
-    return adapted_image
+        # Blend the enhanced image with the original using the mask
+        adapted_image = Image.composite(enhanced_image, image, mask)
+        return adapted_image
+
+    # Quantize both images to the selected bit depth
+    quantized_image1 = quantize_image(image1, bit_depth)
+    quantized_image2 = quantize_image(image2, bit_depth)
+
+    # Adapt the quantized images using patterns from the other image
+    adapted_image1 = adapt_image(quantized_image1, quantized_image2, adapt_factor)
+
+    return quantized_image1, quantized_image2, adapted_image1
+
+# Process the images
+quantized_image1, quantized_image2, adapted_image1 = process_images(image1, image2, bit_depth, adapt_factor)
 
 # Function to plot the color histogram of an image
 def plot_color_histogram(image, ax):
@@ -91,13 +106,6 @@ def plot_color_histogram(image, ax):
         ax.plot(bins[:-1], hist, color=color)
     ax.set_xlim([0, 256])
     ax.set_yticks([])
-
-# Quantize both images to the selected bit depth
-quantized_image1 = quantize_image(image1, bit_depth)
-quantized_image2 = quantize_image(image2, bit_depth)
-
-# Adapt the quantized images using patterns from the other image
-adapted_image1 = adapt_image(quantized_image1, quantized_image2, adapt_factor)
 
 # Create the layout with four columns and histograms
 fig, axes = plt.subplots(2, 4, figsize=(20, 10))
@@ -148,6 +156,7 @@ axes2[1].set_title('Histogram Adapted Image 1')
 plt.tight_layout()
 st.pyplot(fig2)
 
+
 st.write("""
 ### Conclusion
 
@@ -182,4 +191,5 @@ For further reading and detailed technical information, you can refer to the sou
 - [Papers With Code - QLoRA](https://paperswithcode.com/paper/qlora-efficient-finetuning-of-quantized-llms)
 
 """)
+
 
