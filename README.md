@@ -1,8 +1,5 @@
-Sure! Here is a revised version of the README that includes both the original Streamlit app and the new one we worked on together, providing more educational context and helping users understand the purpose and functionality of each.
 
----
-
-# QuantizationViz: Understanding Image and Model Quantization
+# QuantizationViz: Understanding Quantization and QLoRA
 
 Welcome to QuantizationViz, an interactive web application designed to visually demonstrate the effects of image quantization and model adaptation using QLoRA (Quantized Low-Rank Adaptation). This tool helps users understand how quantization impacts image quality and AI model performance.
 
@@ -72,6 +69,3 @@ For more detailed technical information on QLoRA and its applications, you can r
 - [arXiv - QLoRA Paper](https://arxiv.org/abs/2305.14314)
 - [Papers With Code - QLoRA](https://paperswithcode.com/paper/qlora-efficient-finetuning-of-quantized-llms)
 
----
-
-Feel free to adjust the links and screenshots as needed. This updated README should provide clear guidance and context for both the original and new applications within QuantizationViz.
