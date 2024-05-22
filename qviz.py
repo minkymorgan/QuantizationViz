@@ -42,8 +42,6 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-example_image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Mont-Saint-Michel_vu_du_ciel.jpg/2560px-Mont-Saint-Michel_vu_du_ciel.jpg"  # Put your direct image URL here
-
 uploaded_file = st.file_uploader("Or upload your image to see quantization effects", type=['jpg', 'jpeg', 'png'])
 if uploaded_file is not None:
     image = Image.open(uploaded_file).convert('RGB')
